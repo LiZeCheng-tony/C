@@ -1,15 +1,14 @@
 #include<stdio.h>
 #define num 59
-#define MAX_LINE 1000000
 int student_chinese[num];
 int student_maths[num];
 int student_english[num];
-int student_name[MAX_LINE];
+int student_name[1000];
 int name()
 {
-char szTest[1000] = {0};
+char student_name[1000] = {0};
 int len = 0;
-FILE *fp = fopen("name.txt", "r");
+FILE *fp = fopen("name.txt","r");
 if(NULL == fp)
 {
 printf("failed to open dos.txt\n");
@@ -17,9 +16,9 @@ return 1;
 }
 while(!feof(fp))
 {
-memset(szTest,0, sizeof(szTest));
-fgets(szTest,sizeof(szTest) - 1, fp); // 包含了换行符          
-printf("%s",szTest);
+memset(student_name,0, sizeof(student_name));
+fgets(student_name,sizeof(student_name) - 1, fp);
+printf("%s",student_name);
 }
 fclose(fp);
 printf("\n");
