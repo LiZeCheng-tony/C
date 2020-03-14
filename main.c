@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include <stdlib.h>
 int main()
 {
     int a;
@@ -9,7 +8,7 @@ int main()
     printf("+   2.maths            +\n");
     printf("+   3.english          +\n");
     printf("+----------------------+\n");
-    printf(":")
+    printf(":");
     scanf("%d",&a);
     if (a==1)
     {
