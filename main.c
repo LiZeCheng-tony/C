@@ -7,17 +7,23 @@ int student_english[num];
 int student_name[MAX_LINE];
 int name()
 {
- FILE *fp;            /*文件指针*/
- int len;             /*行字符个数*/
- if((fp = fopen("name.txt","r")) == NULL)
- {
- perror("fail to read");
- exit (1) ;
- }
- while(fgets(student_name,MAX_LINE,fp) != NULL)
- {
- printf("%d \n",student_name);
- }
+char szTest[1000] = {0};
+int len = 0;
+FILE *fp = fopen("name.txt", "r");
+if(NULL == fp)
+{
+printf("failed to open dos.txt\n");
+return 1;
+}
+while(!feof(fp))
+{
+memset(szTest,0, sizeof(szTest));
+fgets(szTest,sizeof(szTest) - 1, fp); // 包含了换行符          
+printf("%s",szTest);
+}
+fclose(fp);
+printf("\n");
+return 0;
 }
 int main()
 {
