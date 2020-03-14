@@ -11,7 +11,7 @@ int len = 0;
 FILE *fp = fopen("name.txt","r");
 if(NULL == fp)
 {
-printf("failed to open dos.txt\n");
+printf("no name.txt!\n");
 return 1;
 }
 while(!feof(fp))
@@ -50,7 +50,7 @@ int main()
 }
 int chinese()
 {
-
+    
 }
 int maths()
 {
