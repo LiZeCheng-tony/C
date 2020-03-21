@@ -4,16 +4,16 @@ int student_chinese[num];
 int student_maths[num];
 int student_english[num];
 int student_name[num];
-int len = 0;
+
 int name()
 {
     FILE *fp;
+    int len;
     int a=1;
     char ch;
-    if((fp==fopen("name.txt","r"))==NULL)
+    if((fp=fopen("name.txt","r+"))==NULL)
     {
         printf("sorry,can't read name.txt!\n");
-        exit(1);
     }
     while((ch=fgetc(fp))!=EOF)
         if(ch==' ' || ch=='\t' || ch=='\n')
@@ -27,9 +27,8 @@ int name()
         }
     for (int i = 1; i <=num; i++)
     {
-        printf("%s\n",student_name[i]);
+        printf("%s\n",student_name[a]);
     }
-    main();
 }
 int main()
 {
@@ -79,19 +78,13 @@ int chinese()
         }
     }
     printf("-----------ENTER END------------");
-    printf("yes/no?:");
-    scanf("%d",&a);
-    if(a=='yes'){
-        fputs(student_chinese,fp);
+    fputs(student_chinese,fp);
         fputs("\n",fp);
         fclose(fp);
-        printf("-----------SAVE--------------");
+        printf("-----------SAVE OK--------------");
         system("pause");
         system("cls");
         main();
-    }else{
-        int student_chinese[num]={0};
-    }
 }
 int maths()
 {
